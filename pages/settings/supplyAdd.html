@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>好客科技 | 公司信息</title>
+    <title>好客科技 | 新增供应商</title>
 
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link href="/font-awesome/css/font-awesome.css" rel="stylesheet">
@@ -14,8 +14,7 @@
     <link href="/css/animate.css" rel="stylesheet">
     <link href="/css/style.css" rel="stylesheet">
     <link href="../css/common.css" rel="stylesheet">
-    <link href="../css/companyInfo.css" rel="stylesheet">
-
+    <link href="../css/supplyAdd.css" rel="stylesheet">
 </head>
 
 <body>
@@ -55,7 +54,7 @@
                         </div>
                     </li>
 
-                    <li >
+                    <li>
                         <a href="/pages/hotelInfo.html">
                             <i class="fa fa-diamond"></i>
                             <span class="nav-label">酒店信息</span>
@@ -95,11 +94,14 @@
                             <span class="fa arrow"></span>
                         </a>
                         <ul class="nav nav-second-level collapse">
-                            <li class="active">
+                            <li>
                                 <a href="/pages/settings/companyInfo.html">公司信息</a>
                             </li>
                             <li>
                                 <a href="/pages/settings/menuFunction.html">菜单与功能</a>
+                            </li>
+                            <li class="active">
+                                <a href="./supplyManager.html">供应管理</a>
                             </li>
                             <li>
                                 <a href="#">部门与员工
@@ -119,6 +121,9 @@
                                         <a href="/pages/settings/departmentStaff/addAccount.html">新增账号</a>
                                     </li>
                                 </ul>
+                            </li>
+                            <li>
+                                <a href="./operationLogs.html">操作日志</a>
                             </li>
                         </ul>
                     </li>
@@ -265,8 +270,14 @@
                         <li>
                             <a href="index.html">首页</a>
                         </li>
+                        <li>
+                            <a href="index.html">设置</a>
+                        </li>
+                        <li>
+                            <a href="index.html">供应管理</a>
+                        </li>
                         <li class="active">
-                            <strong>公司信息</strong>
+                            <strong>新增供应商</strong>
                         </li>
                     </ol>
                 </div>
@@ -275,17 +286,17 @@
                 <div class="col-lg-12">
                     <div class="wrapper wrapper-content animated fadeInRight">
                         <div class="ibox-content p-xl">
-                            <h3 class="c-5CA1F8">公司信息</h3>
+                            <h3 class="c-5CA1F8">基础信息</h3>
                             <form method="get" class="form-horizontal">
                                 <div class="form-group">
-                                    <label class="col-sm-2 control-label"><span class="red">*</span>公司名称</label>
+                                    <label class="col-sm-2 control-label">
+                                        <span class="red">*</span>公司名称</label>
                                     <div class="col-sm-4">
                                         <input type="text" class="form-control" placeholder="请输入公司名称">
-                                        <span class="help-block m-b-none red">公司名称不能为空</span>
                                     </div>
 
                                     <label class="col-sm-2 control-label">
-                                        <span class="red">*</span>公司logo</label>
+                                        公司logo</label>
                                     <div class="col-sm-4 clearfix">
                                         <img class="pull-left" width="126px" src="../images/logo.png" alt="公司logo">
                                         <div class="img-desc pull-left block">仅支持JPG, JPEG, BMP, PNG格式, 文件小于10M (建议使用缕空白色图像, 最佳尺寸126 * 45px)</div>
@@ -296,9 +307,30 @@
                             <form method="get" class="form-horizontal">
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">
+                                        <span class="red">*</span>公司类型</label>
+                                    <div class="col-sm-4">
+                                        <select class="form-control m-b" name="account">
+                                            <option>请选择公司类型</option>
+                                            <option>部门1</option>
+                                            <option>部门2</option>
+                                            <option>部门3</option>
+                                        </select>
+                                    </div>
+                            
+                                    <label class="col-sm-2 control-label">
+                                        邮箱</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" placeholder="请输入邮箱">
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                            </form>
+                            <form method="get" class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">
                                         <span class="red">*</span>区域</label>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control" placeholder="请输入公司名称">
+                                        <input type="text" class="form-control" placeholder="请选择区域">
                                     </div>
 
                                     <label class="col-sm-2 control-label">
@@ -315,36 +347,21 @@
                                     <div class="col-sm-4">
                                         <input type="text" class="form-control" placeholder="请输入邮编">
                                     </div>
-
                                     <label class="col-sm-2 control-label">
-                                        <span class="red">*</span>联系人</label>
+                                        公司网址</label>
                                     <div class="col-sm-4">
-                                        <input type="text" class="form-control" placeholder="请输入联系人">
+                                        <input type="text" class="form-control" placeholder="请输入公司网址">
                                     </div>
                                 </div>
                                 <div class="hr-line-dashed"></div>
                             </form>
+
                             <form method="get" class="form-horizontal">
                                 <div class="form-group">
-                                    <label class="col-sm-2 control-label">职位</label>
-                                    <div class="col-sm-4">
-                                        <input type="text" class="form-control" placeholder="请输入职位">
-                                    </div>
-
                                     <label class="col-sm-2 control-label">
-                                    公司电话</label>
+                                        <span class="red">*</span>电话</label>
                                     <div class="col-sm-4">
                                         <input type="text" class="form-control" placeholder="请输入公司电话">
-                                    </div>
-                                </div>
-                                <div class="hr-line-dashed"></div>
-                            </form>
-
-                            <form method="get" class="form-horizontal">
-                                <div class="form-group">
-                                    <label class="col-sm-2 control-label"><span class="red">*</span>手机</label>
-                                    <div class="col-sm-4">
-                                        <input type="text" class="form-control" placeholder="请输入手机">
                                     </div>
 
                                     <label class="col-sm-2 control-label">
@@ -356,32 +373,12 @@
                                 <div class="hr-line-dashed"></div>
                             </form>
 
-                            <form method="get" class="form-horizontal">
-                                <div class="form-group">
-                                    <label class="col-sm-2 control-label">QQ</label>
-                                    <div class="col-sm-4">
-                                        <input type="text" class="form-control" placeholder="请输入QQ">
-                                    </div>
-
-                                    <label class="col-sm-2 control-label">
-                                        邮箱</label>
-                                    <div class="col-sm-4">
-                                        <input type="text" class="form-control" placeholder="请输入邮箱">
-                                    </div>
-                                </div>
-                                <div class="hr-line-dashed"></div>
-                            </form>
+                            
                             <form method="get" class="form-horizontal">
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">公司简介</label>
                                     <div class="col-sm-4">
                                         <textarea class="form-control" rows="3"></textarea>
-                                    </div>
-
-                                    <label class="col-sm-2 control-label">
-                                        公司网址</label>
-                                    <div class="col-sm-4">
-                                        <input type="text" class="form-control" placeholder="请输入公司网址">
                                     </div>
                                 </div>
                                 <div class="hr-line-dashed"></div>
@@ -396,7 +393,7 @@
                     <div class="wrapper wrapper-content animated fadeInRight">
                         <div class="ibox-content p-xl">
                             <h3 class="c-5CA1F8">财务信息</h3>
-                            
+
                             <form method="get" class="form-horizontal">
                                 <div class="form-group">
                                     <label class="col-sm-2 control-label">开户银行</label>
@@ -432,6 +429,202 @@
                                     <label class="col-sm-2 control-label">发票抬头</label>
                                     <div class="col-sm-4">
                                         <input type="text" class="form-control" placeholder="请输入发票抬头">
+                                    </div>
+                                    <label class="col-sm-2 control-label"><span class="red">*</span>结算方式</label>
+                                    <div class="col-sm-4">
+                                        <select class="form-control m-b" name="account">
+                                            <option>日结</option>
+                                            <option>部门1</option>
+                                            <option>部门2</option>
+                                            <option>部门3</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="wrapper wrapper-content animated fadeInRight">
+                        <div class="ibox-content p-xl">
+                            <h3 class="c-5CA1F8">合作信息</h3>
+            
+                            <form method="get" class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label"><span class="red">*</span>签约人</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" placeholder="请输入签约人">
+                                    </div>
+            
+                                    <label class="col-sm-2 control-label"><span class="red">*</span>手机</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" placeholder="请输入手机">
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                            </form>
+            
+                            <form method="get" class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label"><span class="red">*</span>联系人</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" placeholder="请输入联系人">
+                                    </div>
+            
+                                    <label class="col-sm-2 control-label"><span class="red">*</span>联系人手机</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" placeholder="请输入联系人手机">
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                            </form>
+            
+                            <form method="get" class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label"><span class="red">*</span>账号</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" placeholder="请输入账号">
+                                    </div>
+                                    <label class="col-sm-2 control-label">
+                                        <span class="red">*</span>角色</label>
+                                    <div class="col-sm-4">
+                                        <select class="form-control m-b" name="account">
+                                            <option>请选择角色</option>
+                                            <option>部门1</option>
+                                            <option>部门2</option>
+                                            <option>部门3</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                            </form>
+                            <form method="get" class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">
+                                        职位</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" placeholder="请输入职位">
+                                    </div>
+                            
+                                    <label class="col-sm-2 control-label">
+                                        QQ</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" placeholder="请输入QQ">
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                            </form>
+                            <form method="get" class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">
+                                        业务合同</label>
+                                    <div class="col-sm-4">
+                                        <input type="file" id="inputFile">
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                            </form>
+                            <div>
+                                <button type="button" class="btn btn-w-m btn-primary">保存</button>
+                                <button type="button" class="btn btn-w-m btn-default mgl20">取消</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="wrapper wrapper-content animated fadeInRight">
+                        <div class="ibox-content p-xl">
+                            <h3 class="c-5CA1F8">合作信息</h3>
+            
+                            <form method="get" class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label"><span class="red">*</span>签约人</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" placeholder="请输入签约人">
+                                    </div>
+            
+                                    <label class="col-sm-2 control-label"><span class="red">*</span>手机</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" placeholder="请输入手机">
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                            </form>
+            
+                            <form method="get" class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label"><span class="red">*</span>联系人</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" placeholder="请输入联系人">
+                                    </div>
+            
+                                    <label class="col-sm-2 control-label"><span class="red">*</span>联系人手机</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" placeholder="请输入联系人手机">
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                            </form>
+            
+                            <form method="get" class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label"><span class="red">*</span>账号</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" placeholder="请输入账号">
+                                    </div>
+                                    <label class="col-sm-2 control-label">
+                                        <span class="red">*</span>角色</label>
+                                    <div class="col-sm-4">
+                                        <select class="form-control m-b" name="account">
+                                            <option>请选择角色</option>
+                                            <option>部门1</option>
+                                            <option>部门2</option>
+                                            <option>部门3</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                            </form>
+                            <form method="get" class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">
+                                        职位</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" placeholder="请输入职位">
+                                    </div>
+                            
+                                    <label class="col-sm-2 control-label">
+                                        QQ</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" placeholder="请输入QQ">
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                            </form>
+                            <form method="get" class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">
+                                        业务合同</label>
+                                    <div class="col-sm-4">
+                                        <input type="file" id="inputFile">
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                            </form>
+                            <form method="get" class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">
+                                        合同摘要</label>
+                                    <div class="col-sm-4 editTable">
+                                        预留编辑表格
                                     </div>
                                 </div>
                                 <div class="hr-line-dashed"></div>

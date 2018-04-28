@@ -6,15 +6,16 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>好客科技 | 员工账号</title>
+    <title>好客科技 | 供应管理</title>
 
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link href="/font-awesome/css/font-awesome.css" rel="stylesheet">
 
     <link href="/css/animate.css" rel="stylesheet">
     <link href="/css/style.css" rel="stylesheet">
-    <link href="../../css/common.css" rel="stylesheet">
-    <link href="../../css/staffAccount.css" rel="stylesheet">
+    <link href="../css/common.css" rel="stylesheet">
+    <link href="../css/operationLogs.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -41,17 +42,11 @@
                             </a>
                             <ul class="dropdown-menu animated fadeInRight m-t-xs">
                                 <li>
-                                    <a href="profile.html">Profile</a>
-                                </li>
-                                <li>
-                                    <a href="contacts.html">Contacts</a>
-                                </li>
-                                <li>
-                                    <a href="mailbox.html">Mailbox</a>
+                                    <a href="./userDetail.html">账号信息</a>
                                 </li>
                                 <li class="divider"></li>
                                 <li>
-                                    <a href="../../login.html">登出</a>
+                                    <a href="login.html">登出</a>
                                 </li>
                             </ul>
                         </div>
@@ -107,11 +102,14 @@
                                 <a href="/pages/settings/menuFunction.html">菜单与功能</a>
                             </li>
                             <li class="active">
+                                <a href="./supplyManager.html">供应管理</a>
+                            </li>
+                            <li>
                                 <a href="#">部门与员工
                                     <span class="fa arrow"></span>
                                 </a>
                                 <ul class="nav nav-third-level">
-                                    <li class="active">
+                                    <li>
                                         <a href="/pages/settings/departmentStaff/staffAccount.html">员工账号</a>
                                     </li>
                                     <li>
@@ -120,11 +118,16 @@
                                     <li>
                                         <a href="/pages/settings/departmentStaff/rolePowerSetting.html">角色权限设置</a>
                                     </li>
-                                    <li >
+                                    <li>
                                         <a href="/pages/settings/departmentStaff/addAccount.html">新增账号</a>
                                     </li>
                                 </ul>
                             </li>
+
+                            <li >
+                                <a href="./operationLogs.html">操作日志</a>
+                            </li>
+
                         </ul>
                     </li>
                 </ul>
@@ -256,7 +259,7 @@
 
 
                         <li>
-                            <a href="../../login.html">
+                            <a href="login.html">
                                 <i class="fa fa-sign-out"></i> 登出
                             </a>
                         </li>
@@ -271,10 +274,10 @@
                             <a href="index.html">首页</a>
                         </li>
                         <li>
-                            <a href="#">设置</a>
+                            <a href="index.html">设置</a>
                         </li>
                         <li class="active">
-                            <strong>员工账号</strong>
+                            <strong>供应管理</strong>
                         </li>
                     </ol>
                 </div>
@@ -285,29 +288,35 @@
                         <div class="ibox-content p-xl">
                             <div class="clearfix">
                                 <select class="form-control m-b w100 pull-left" name="account">
-                                    <option>全部部门</option>
+                                    <option>全部状态</option>
                                     <option>部门1</option>
                                     <option>部门2</option>
                                     <option>部门3</option>
                                 </select>
                                 <select class="form-control m-b w100 pull-left mgl20" name="account">
-                                    <option>全部状态</option>
-                                    <option>状态1</option>
-                                    <option>状态2</option>
-                                    <option>状态3</option>
+                                    <option>结算方式</option>
+                                    <option>方式1</option>
+                                    <option>方式2</option>
+                                    <option>方式3</option>
+                                </select>
+                                <select class="form-control m-b w100 pull-left mgl20" name="account">
+                                    <option>公司类型</option>
+                                    <option>类型1</option>
+                                    <option>类型2</option>
+                                    <option>类型3</option>
                                 </select>
                                 <div class="input-group pull-left w300 mgl20">
-                                    <input type="text" class="form-control">
+                                    <input type="text" class="form-control" placeholder="请输入供应商/签约人">
                                     <span class="input-group-btn">
                                         <button type="button" class="btn btn-primary">搜索</button>
                                     </span>
                                 </div>
                                 <div class="pull-right">
-                                    <button type="button" class="btn btn-primary">新增账号</button>
+                                    <button id="JS_add_supply" type="button" class="btn btn-primary">新增供应商</button>
                                 </div>
                             </div>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>
@@ -319,185 +328,237 @@
                             <table class="table table-hover">
                                 <thead>
                                     <tr>
-                                        <th>用户名</th>
-                                        <th>姓名</th>
-                                        <th>职位</th>
-                                        <th>部门</th>
-                                        <th>手机</th>
-                                        <th>邮箱</th>
+                                        <th>供应商名称</th>
+                                        <th>公司类型</th>
+                                        <th>账号</th>
+                                        <th>签约人</th>
+                                        <th>签约人电话</th>
+                                        <th>联系人</th>
+                                        <th>联系电话</th>
+                                        <th>结算方式</th>
+                                        <th>结算时间</th>
                                         <th>状态</th>
                                         <th>操作</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>89056290</td>
+                                        <td>道尚车城酒店</td>
                                         <td>
-                                            墨含
+                                            酒店
                                         </td>
-                                        <td>总经理</td>
+                                        <td>DSCCJD</td>
                                         <td>
-                                            前端开发部
+                                            陈胜利
                                         </td>
-                                        <td>15386015657</td>
-                                        <td>1533897946@qq.com</td>
+                                        <td>18163646818</td>
+                                        <td>黄广潮</td>
+                                        <td>15118218030</td>
+                                        <td>月结</td>
+                                        <td>1号</td>
                                         <td>启用</td>
-                                        <td> <a href="#">禁用</a> <a href="#">修改</a> </td>
+                                        <td><a href="#">禁用</a>
+                                        <a href="#">修改</a></td>
                                     </tr>
                                     <tr>
-                                        <td>89056290</td>
+                                        <td>道尚车城酒店</td>
                                         <td>
-                                            墨含
+                                            酒店
                                         </td>
-                                        <td>总经理</td>
+                                        <td>DSCCJD</td>
                                         <td>
-                                            前端开发部
+                                            陈胜利
                                         </td>
-                                        <td>15386015657</td>
-                                        <td>1533897946@qq.com</td>
+                                        <td>18163646818</td>
+                                        <td>黄广潮</td>
+                                        <td>15118218030</td>
+                                        <td>月结</td>
+                                        <td>1号</td>
                                         <td>启用</td>
-                                        <td> <a href="#">禁用</a> <a href="#">修改</a> </td>
+                                        <td><a href="#">禁用</a>
+                                        <a href="#">修改</a></td>
                                     </tr>
                                     <tr>
-                                        <td>89056290</td>
+                                        <td>道尚车城酒店</td>
                                         <td>
-                                            墨含
+                                            酒店
                                         </td>
-                                        <td>总经理</td>
+                                        <td>DSCCJD</td>
                                         <td>
-                                            前端开发部
+                                            陈胜利
                                         </td>
-                                        <td>15386015657</td>
-                                        <td>1533897946@qq.com</td>
+                                        <td>18163646818</td>
+                                        <td>黄广潮</td>
+                                        <td>15118218030</td>
+                                        <td>月结</td>
+                                        <td>1号</td>
                                         <td>启用</td>
-                                        <td> <a href="#">禁用</a> <a href="#">修改</a> </td>
+                                        <td><a href="#">禁用</a>
+                                        <a href="#">修改</a></td>
                                     </tr>
                                     <tr>
-                                        <td>89056290</td>
+                                        <td>道尚车城酒店</td>
                                         <td>
-                                            墨含
+                                            酒店
                                         </td>
-                                        <td>总经理</td>
+                                        <td>DSCCJD</td>
                                         <td>
-                                            前端开发部
+                                            陈胜利
                                         </td>
-                                        <td>15386015657</td>
-                                        <td>1533897946@qq.com</td>
+                                        <td>18163646818</td>
+                                        <td>黄广潮</td>
+                                        <td>15118218030</td>
+                                        <td>月结</td>
+                                        <td>1号</td>
                                         <td>启用</td>
-                                        <td> <a href="#">禁用</a> <a href="#">修改</a> </td>
+                                        <td><a href="#">禁用</a>
+                                        <a href="#">修改</a></td>
                                     </tr>
                                     <tr>
-                                        <td>89056290</td>
+                                        <td>道尚车城酒店</td>
                                         <td>
-                                            墨含
+                                            酒店
                                         </td>
-                                        <td>总经理</td>
+                                        <td>DSCCJD</td>
                                         <td>
-                                            前端开发部
+                                            陈胜利
                                         </td>
-                                        <td>15386015657</td>
-                                        <td>1533897946@qq.com</td>
+                                        <td>18163646818</td>
+                                        <td>黄广潮</td>
+                                        <td>15118218030</td>
+                                        <td>月结</td>
+                                        <td>1号</td>
                                         <td>启用</td>
-                                        <td> <a href="#">禁用</a> <a href="#">修改</a> </td>
+                                        <td><a href="#">禁用</a>
+                                        <a href="#">修改</a></td>
                                     </tr>
                                     <tr>
-                                        <td>89056290</td>
+                                        <td>道尚车城酒店</td>
                                         <td>
-                                            墨含
+                                            酒店
                                         </td>
-                                        <td>总经理</td>
+                                        <td>DSCCJD</td>
                                         <td>
-                                            前端开发部
+                                            陈胜利
                                         </td>
-                                        <td>15386015657</td>
-                                        <td>1533897946@qq.com</td>
+                                        <td>18163646818</td>
+                                        <td>黄广潮</td>
+                                        <td>15118218030</td>
+                                        <td>月结</td>
+                                        <td>1号</td>
                                         <td>启用</td>
-                                        <td> <a href="#">禁用</a> <a href="#">修改</a> </td>
+                                        <td><a href="#">禁用</a>
+                                        <a href="#">修改</a></td>
                                     </tr>
                                     <tr>
-                                        <td>89056290</td>
+                                        <td>道尚车城酒店</td>
                                         <td>
-                                            墨含
+                                            酒店
                                         </td>
-                                        <td>总经理</td>
+                                        <td>DSCCJD</td>
                                         <td>
-                                            前端开发部
+                                            陈胜利
                                         </td>
-                                        <td>15386015657</td>
-                                        <td>1533897946@qq.com</td>
+                                        <td>18163646818</td>
+                                        <td>黄广潮</td>
+                                        <td>15118218030</td>
+                                        <td>月结</td>
+                                        <td>1号</td>
                                         <td>启用</td>
-                                        <td> <a href="#">禁用</a> <a href="#">修改</a> </td>
+                                        <td><a href="#">禁用</a>
+                                        <a href="#">修改</a></td>
                                     </tr>
                                     <tr>
-                                        <td>89056290</td>
+                                        <td>道尚车城酒店</td>
                                         <td>
-                                            墨含
+                                            酒店
                                         </td>
-                                        <td>总经理</td>
+                                        <td>DSCCJD</td>
                                         <td>
-                                            前端开发部
+                                            陈胜利
                                         </td>
-                                        <td>15386015657</td>
-                                        <td>1533897946@qq.com</td>
+                                        <td>18163646818</td>
+                                        <td>黄广潮</td>
+                                        <td>15118218030</td>
+                                        <td>月结</td>
+                                        <td>1号</td>
                                         <td>启用</td>
-                                        <td> <a href="#">禁用</a> <a href="#">修改</a> </td>
+                                        <td><a href="#">禁用</a>
+                                        <a href="#">修改</a></td>
                                     </tr>
                                     <tr>
-                                        <td>89056290</td>
+                                        <td>道尚车城酒店</td>
                                         <td>
-                                            墨含
+                                            酒店
                                         </td>
-                                        <td>总经理</td>
+                                        <td>DSCCJD</td>
                                         <td>
-                                            前端开发部
+                                            陈胜利
                                         </td>
-                                        <td>15386015657</td>
-                                        <td>1533897946@qq.com</td>
+                                        <td>18163646818</td>
+                                        <td>黄广潮</td>
+                                        <td>15118218030</td>
+                                        <td>月结</td>
+                                        <td>1号</td>
                                         <td>启用</td>
-                                        <td> <a href="#">禁用</a> <a href="#">修改</a> </td>
+                                        <td><a href="#">禁用</a>
+                                        <a href="#">修改</a></td>
                                     </tr>
                                     <tr>
-                                        <td>89056290</td>
+                                        <td>道尚车城酒店</td>
                                         <td>
-                                            墨含
+                                            酒店
                                         </td>
-                                        <td>总经理</td>
+                                        <td>DSCCJD</td>
                                         <td>
-                                            前端开发部
+                                            陈胜利
                                         </td>
-                                        <td>15386015657</td>
-                                        <td>1533897946@qq.com</td>
+                                        <td>18163646818</td>
+                                        <td>黄广潮</td>
+                                        <td>15118218030</td>
+                                        <td>月结</td>
+                                        <td>1号</td>
                                         <td>启用</td>
-                                        <td> <a href="#">禁用</a> <a href="#">修改</a> </td>
+                                        <td><a href="#">禁用</a>
+                                        <a href="#">修改</a></td>
                                     </tr>
                                     <tr>
-                                        <td>89056290</td>
+                                        <td>道尚车城酒店</td>
                                         <td>
-                                            墨含
+                                            酒店
                                         </td>
-                                        <td>总经理</td>
+                                        <td>DSCCJD</td>
                                         <td>
-                                            前端开发部
+                                            陈胜利
                                         </td>
-                                        <td>15386015657</td>
-                                        <td>1533897946@qq.com</td>
+                                        <td>18163646818</td>
+                                        <td>黄广潮</td>
+                                        <td>15118218030</td>
+                                        <td>月结</td>
+                                        <td>1号</td>
                                         <td>启用</td>
-                                        <td> <a href="#">禁用</a> <a href="#">修改</a> </td>
+                                        <td><a href="#">禁用</a>
+                                        <a href="#">修改</a></td>
                                     </tr>
                                     <tr>
-                                        <td>89056290</td>
+                                        <td>道尚车城酒店</td>
                                         <td>
-                                            墨含
+                                            酒店
                                         </td>
-                                        <td>总经理</td>
+                                        <td>DSCCJD</td>
                                         <td>
-                                            前端开发部
+                                            陈胜利
                                         </td>
-                                        <td>15386015657</td>
-                                        <td>1533897946@qq.com</td>
+                                        <td>18163646818</td>
+                                        <td>黄广潮</td>
+                                        <td>15118218030</td>
+                                        <td>月结</td>
+                                        <td>1号</td>
                                         <td>启用</td>
-                                        <td> <a href="#">禁用</a> <a href="#">修改</a> </td>
+                                        <td><a href="#">禁用</a>
+                                        <a href="#">修改</a></td>
                                     </tr>
+                                    
                                 </tbody>
                             </table>
                         </div>
@@ -542,7 +603,11 @@
     <script src="/js/inspinia.js"></script>
     <script src="/js/plugins/pace/pace.min.js"></script>
 
-
+    <script>
+        $('#JS_add_supply').on('click',function(){
+            location.href = './supplyAdd.html';
+        });
+    </script>
 </body>
 
 </html>

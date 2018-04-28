@@ -6,15 +6,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>好客科技 | 菜单与功能</title>
+    <title>好客科技 | 账号信息</title>
 
     <link href="/css/bootstrap.min.css" rel="stylesheet">
     <link href="/font-awesome/css/font-awesome.css" rel="stylesheet">
 
     <link href="/css/animate.css" rel="stylesheet">
     <link href="/css/style.css" rel="stylesheet">
+    <link href="../css/userDetail.css" rel="stylesheet">
     <link href="../css/common.css" rel="stylesheet">
-    
 
 </head>
 
@@ -42,13 +42,7 @@
                             </a>
                             <ul class="dropdown-menu animated fadeInRight m-t-xs">
                                 <li>
-                                    <a href="profile.html">Profile</a>
-                                </li>
-                                <li>
-                                    <a href="contacts.html">Contacts</a>
-                                </li>
-                                <li>
-                                    <a href="mailbox.html">Mailbox</a>
+                                    <a href="./userDetail.html">账号信息</a>
                                 </li>
                                 <li class="divider"></li>
                                 <li>
@@ -101,13 +95,13 @@
                             <span class="fa arrow"></span>
                         </a>
                         <ul class="nav nav-second-level collapse">
-                            <li >
+                            <li>
                                 <a href="/pages/settings/companyInfo.html">公司信息</a>
                             </li>
-                            <li class="active">
+                            <li>
                                 <a href="/pages/settings/menuFunction.html">菜单与功能</a>
                             </li>
-                            <li>
+                            <li class="active">
                                 <a href="#">部门与员工
                                     <span class="fa arrow"></span>
                                 </a>
@@ -121,7 +115,7 @@
                                     <li>
                                         <a href="/pages/settings/departmentStaff/rolePowerSetting.html">角色权限设置</a>
                                     </li>
-                                    <li>
+                                    <li class="active">
                                         <a href="/pages/settings/departmentStaff/addAccount.html">新增账号</a>
                                     </li>
                                 </ul>
@@ -275,7 +269,7 @@
                             <a href="index.html">设置</a>
                         </li>
                         <li class="active">
-                            <strong>菜单与功能设置</strong>
+                            <strong>账号信息</strong>
                         </li>
                     </ol>
                 </div>
@@ -284,31 +278,97 @@
                 <div class="col-lg-12">
                     <div class="wrapper wrapper-content animated fadeInRight">
                         <div class="ibox-content p-xl">
-                            <div class="tr pdb10">
-                                <button type="button" class="btn btn-w-m btn-primary">新增菜单</button>
+                            <h3 class="c-5CA1F8">账号信息</h3>
+                            <form method="get" class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">
+                                        登录账号</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" disabled class="form-control" placeholder="Christ">
+                                    </div>
+
+                                    <label class="col-sm-2 control-label">
+                                        姓名</label>
+                                    <div class="col-sm-4">
+                                        <input disabled type="text" class="form-control" placeholder="墨含">
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                            </form>
+                            <form method="get" class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">
+                                        手机</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" value="15386015357">
+                                    </div>
+
+                                    <label class="col-sm-2 control-label">部门</label>
+                                    <div class="col-sm-4">
+                                        <select class="form-control m-b" name="account">
+                                            <option>运营部</option>
+                                            <option>部门1</option>
+                                            <option>部门2</option>
+                                            <option>部门3</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                            </form>
+
+                            <form method="get" class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">职位</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" disabled class="form-control" placeholder="请输入职位">
+                                    </div>
+
+                                    <label class="col-sm-2 control-label">部门负责人</label>
+                                    <div class="col-sm-4">
+                                        <div>
+                                            <label>
+                                                <input type="radio" disabled value="option1" id="optionsRadios1" name="optionsRadios"> 是 </label>
+                                        </div>
+                                        <div>
+                                            <label>
+                                                <input type="radio" disabled value="option2" id="optionsRadios2" name="optionsRadios"> 否 </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                            </form>
+
+                            <form method="get" class="form-horizontal">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">Email</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" placeholder="请输入邮箱">
+                                    </div>
+
+                                    <label class="col-sm-2 control-label">QQ</label>
+                                    <div class="col-sm-4">
+                                        <input type="text" class="form-control" placeholder="请输入QQ号">
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                            </form>
+                            <div>
+                                <h3 class="c-5CA1F8">账号权限 </h3>
+                                <span>权限与角色关联，选择该账号的角色可完成权限设置</span>
                             </div>
-                            <div class="dd" id="nestable">
-                                <ol class="dd-list">
-                                    <li class="dd-item" data-id="1">
-                                        <div class="dd-handle">酒店管理</div>
-                                    </li>
-                                    <li class="dd-item" data-id="2">
-                                        <div class="dd-handle">结算中心</div>
-                                        <ol class="dd-list">
-                                            <li class="dd-item" data-id="3">
-                                                <div class="dd-handle">结算管理</div>
-                                                <ol class="dd-list">
-                                                    <li class="dd-item" data-id="4">
-                                                        <div class="dd-handle">应收结算</div>
-                                                    </li>
-                                                    <li class="dd-item" data-id="5">
-                                                        <div class="dd-handle">应付结算</div>
-                                                    </li>
-                                                </ol>
-                                            </li>
-                                        </ol>
-                                    </li>
-                                </ol>
+                            <form method="get" class="form-horizontal pdt20">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">账号权限</label>
+                                    <div class="col-sm-4">
+                                        <label class="checkbox-inline"><input checked type="checkbox" value="option1" id="inlineCheckbox1">系统管理员</label>
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                            </form>
+                            <div>
+                                <button type="button" class="btn btn-w-m btn-primary">保存</button>
+                                <button type="button" class="btn btn-w-m btn-default mgl20">取消</button>
+                                <button data-toggle="modal" data-target="#editPsdModal" type="button" class="btn btn-w-m btn-default mgl20">修改密码</button>
                             </div>
                         </div>
                     </div>
@@ -320,6 +380,54 @@
                 </div>
             </div>
 
+
+
+        </div>
+    </div>
+
+
+    <!-- model -->
+    <div class="modal inmodal fade" id="editPsdModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title">修改密码</h4>
+                </div>
+                <div class="modal-body">
+                    <form method="get" class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">旧密码</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" placeholder="">
+                            </div>
+                        </div>
+                    </form>
+                    <form method="get" class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">新密码</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" placeholder="">
+                            </div>
+                        </div>
+                    </form>
+                    <form method="get" class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">再次确认</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" placeholder="">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-white" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary">确定</button>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -329,33 +437,11 @@
     <script src="/js/plugins/metisMenu/jquery.metisMenu.js"></script>
     <script src="/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
 
-    <!-- Nestable List -->
-    <script src="/js/plugins/nestable/jquery.nestable.js"></script>
-
     <!-- Custom and plugin javascript -->
     <script src="/js/inspinia.js"></script>
     <script src="/js/plugins/pace/pace.min.js"></script>
 
-    <script>
-        $(document).ready(function () {
 
-            // activate Nestable for list 1
-            $('#nestable').nestable({
-                group: 1
-            });
-            // output initial serialised data
-            $('#nestable-menu').on('click', function (e) {
-                var target = $(e.target),
-                    action = target.data('action');
-                if (action === 'expand-all') {
-                    $('.dd').nestable('expandAll');
-                }
-                if (action === 'collapse-all') {
-                    $('.dd').nestable('collapseAll');
-                }
-            });
-        });
-    </script>
 </body>
 
 </html>
